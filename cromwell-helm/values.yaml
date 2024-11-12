@@ -48,3 +48,7 @@ cbas:
 
 identity:
   clientId: RUNTIME_PARAMETER
+
+autopilot:
+  enabled: false
+  app:

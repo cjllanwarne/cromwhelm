@@ -35,6 +35,15 @@ spec:
           env:
             - name: SWAGGER_BASE_PATH
               value: "{{ .Values.env.swaggerBasePath }}"
+          {{- if .Values.autopilot.enabled }}
+          {{- with .Values.autopilot.app }}
+          resources:
+            requests:
+              {{- toYaml . | nindent 14 }}
+            limits:
+              {{- toYaml . | nindent 14 }}
+          {{- end }}
+          {{- end }}
           command:
             - "bin/bash"
             - "-c"
